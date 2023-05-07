@@ -1,0 +1,45 @@
+
+
+.approve-turf h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #05B961;
+    text-align: center;
+    margin: 1rem;
+}
+
+.approve-buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.approve-turf{
+    width:100%;
+}
+
+.approve-card{
+    width: 18rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #05B961;
+    border-radius: 5px;
+    margin: 1rem 8rem;
+}
+.approve-card img{
+    width: 15rem;
+    height: 15rem;
+    object-fit: fit;
+    border-radius: 5px;
+}
+.approve-turf-body{
+    display:flex;
+    width:90vw;
+}
+
+.approve-card-buttons button{
+    margin-right: .5rem;
+}

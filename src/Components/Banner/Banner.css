@@ -1,0 +1,51 @@
+.banner-image{
+    background-image: url(https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    width: 100%;
+}
+.qoute-content{
+    color: white;
+    font-size: 2vw;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 20vh;
+    height: 1.5rem;
+
+}
+.qoute-persone-name{
+    font-style: italic;
+    color: white;
+    font-size: 1.5vw;
+    font-weight: 100;
+    text-align: center;
+    padding-top: 3vh;
+    height: 1.5rem;
+
+}
+.buttons{
+    display: flex;
+    justify-content: center;  
+    color:beige;
+    margin-top: 4vh;
+}
+.button-explore{
+    text-decoration: none;
+    margin-right: .5rem;
+}
+.button-explore:hover{
+    color: #f5f5f5;
+}
+.button-banner{
+    text-decoration: none;
+    color: #f5f5f5;
+}
+.banner-gradient{
+    background: linear-gradient(180deg, rgba(227, 227, 225, 0) 0%, #E3E3E1 80%);
+    height: 10vh;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    bottom: 0px;
+}

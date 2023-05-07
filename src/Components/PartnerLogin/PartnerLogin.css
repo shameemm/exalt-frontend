@@ -1,0 +1,35 @@
+.partner-login-container{
+    margin: 3rem 3rem 3rem 1.5rem;
+    display: block;
+}
+
+.login-with-phone input{
+    height: 3rem;
+    width: 90%;
+    border-radius: 5px;
+    border: none;
+    padding: 1rem;
+    margin: 1rem;
+    font-size: 1rem;
+    font-weight: 300;
+    background-color: #f5f5f5;
+}
+
+.login-with-phone button{
+    height: 2.5rem;
+    width: 25%;
+    border-radius: 10px;
+    border: none;
+    margin-top: 2rem;
+    margin: 1rem;
+    margin-left: auto;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 300;
+    color: white;
+    background-color: #05B961;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}

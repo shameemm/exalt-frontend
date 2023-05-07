@@ -1,0 +1,82 @@
+.register-head-card{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 1rem;
+    max-width: 500px;
+    position: relative;
+    overflow: hidden;
+    background-color: #2B7754;
+}
+
+.register_title{
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: left;
+    height: 1.5rem; 
+}
+.register_title p{
+    color: #fff;
+}
+
+.register-part-card{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    max-width: 500px;
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.register-form input{
+    height: .75rem;
+    width: 88%;
+    border-radius: 5px;
+    border: none;
+    margin-top:2rem;
+    padding: 1rem;
+    margin: 1rem;
+    font-size: 1rem;
+    font-weight: 300;
+    background-color: #f5f5f5;
+}
+.register-form input[type=submit]{
+    height: 3rem;
+    width: 94%;
+    border-radius: 5px;
+    border: none;
+    margin-top: 0rem;
+    padding: 0rem;
+    font-size: 1rem;
+    font-weight: 300;
+    background-color: #05B961;
+    color:#fff
+}
+
+form i {
+    margin-left: -30px;
+    cursor: pointer;
+}
+
+.register-form span{
+    font-size: 12px;
+    padding: 3px;
+    color:red;
+    display:none
+}
+ input:invalid ~ span{
+    /* border: 1px solid red; */
+    display: block;
+} 

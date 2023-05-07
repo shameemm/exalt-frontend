@@ -1,0 +1,12 @@
+.review-rating-card{
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    padding: 3rem;
+    margin-bottom: 0 !important;
+    margin: 3rem;
+}
+
+.list-reviews{
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    padding: 3rem;
+    margin: 0 3rem;
+}

@@ -1,0 +1,12 @@
+.charts{
+    display:flex;
+    width:75vw;
+    margin: 1rem;
+}
+
+.chart-left{
+    width: 50%;
+}
+.chart-right{
+    width: 50%;
+}

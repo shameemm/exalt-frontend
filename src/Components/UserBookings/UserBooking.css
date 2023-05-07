@@ -1,0 +1,21 @@
+.user-booking-card{
+
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    padding: 3rem;
+    margin: 3rem 10rem;
+
+}
+
+.list-bookings{
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    padding: 3rem;
+    margin: 0 3rem;
+}
+
+.booking-card{
+    display: flex;
+}
+
+.booking-card-right{
+    margin-left: auto;
+}

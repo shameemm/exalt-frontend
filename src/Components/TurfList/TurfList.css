@@ -1,0 +1,19 @@
+
+.user-turf-list{
+    margin: 3rem;
+}
+.turf-list-card img{
+    object-fit: fill;
+    width: 100%;
+    height: 35vh;
+}
+
+.turf-list-card button{
+    width:100%;
+    height: 2rem;
+    border-radius: 5px;
+    border: none;
+    margin-top: 0rem;
+    background-color: #05B961 ;
+    color:#fff;
+}

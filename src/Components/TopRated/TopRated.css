@@ -1,0 +1,51 @@
+.top-rated{
+    background-image: url('D:\brocamp\Exalt\frontend\public\images\top-rated-bg.webp');
+    height: 50vh;
+    width:100%;
+    /* position: absolute; */
+}
+
+.card-toprated{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    margin: 1.5rem;
+    padding: 1rem;
+    width: 12rem;
+    height: 15rem;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.top-rated h2{
+    padding:1rem;
+}
+
+.cards{
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.cards::-webkit-scrollbar{
+    display: none;
+}
+
+.card-title-top-rated{
+    color: #f5f5f5;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: left;
+    padding-top: 1rem;
+    height: 2.5rem;
+}
+.card-location{
+    color: #f5f5f5;
+    font-size: 1rem;
+    font-weight: 100;
+    text-align: left;
+    padding-top: .5rem;
+    height: 2.5rem;
+}

@@ -1,0 +1,76 @@
+.SelectSlotBooking{
+    margin:auto;
+    margin-top: 5rem;
+    width: 80vw;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+.turf-data-booking-image img{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 10px 0 0 0;
+}
+
+.booking-price-detials{
+    margin: 1rem;
+    width: 97%;
+    height: auto;
+    border-radius: 5px;
+    padding:.5rem;
+    border: 1px solid #2B7754
+}
+
+.turf-data-booking{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    border-radius: 10px 10px 0 0;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #2B7754;
+    color:white;
+}
+
+.turf-data-booking-name h4{
+    
+    font-weight:600 ;
+}
+
+.turf-data-booking-details{
+    width:100%;
+    margin :auto 1rem;
+}
+
+.pick-and-pay{
+    margin: 1rem;
+    width: 50%;
+    height: auto;
+    border-radius: 5px;
+    padding:.5rem;
+    border: 1px solid #2B7754
+}
+.pick-date-and-time{
+    margin:1rem 0;
+}
+
+.paymentpart{
+    margin: 1rem;
+    width: 50%;
+    height: 35vh;
+    border-radius: 5px;
+    padding:.5rem;
+    border: 1px solid #2B7754
+}
+
+.select-and-pay{
+    display: flex;
+}
+
+.time-picker{
+    margin:1rem 0;
+}
+.select-court{
+    margin:1rem 0;
+}

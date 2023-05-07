@@ -1,0 +1,6 @@
+.prev-image{
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}

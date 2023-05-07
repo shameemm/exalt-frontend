@@ -1,0 +1,59 @@
+.turf-detail{
+    margin: 3rem;
+}
+
+.turf-detail-card{
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    display: flex;
+    padding: 3rem;
+}
+
+.turf-facility-card{
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    padding: 3rem;
+}
+
+.courts-available, .facilities{
+    width:100%;
+    display: flex;
+}
+
+.facility-icons img{
+    width: 10rem;
+    margin:2rem;
+}
+.list-reviews-partner{
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    padding: 3rem;
+}
+
+.turf-address{
+    border: 1px solid #3F574E;
+    margin: 1rem;
+    width: 100%;
+    border-radius: 10px;
+    padding: 2rem;
+    height: fit-content;
+}
+
+.turf-courts{
+    border: 1px solid #3F574E;
+    margin: 1rem;
+    width: 100%;
+    border-radius: 10px;
+    padding: 2rem;
+    height: fit-content;
+}
+
+.detail-card-right{
+    width:44vw;
+}
+
+.turf-logo img{
+    width:25rem;
+    height: 25rem;
+}
+.turf-logo{
+    width:30rem;
+    height: 25rem;
+}
