@@ -30,7 +30,9 @@ function TopRated() {
                     {
                         data.map((item) => {
                             return(
-                                <div className="card-toprated" style={{ backgroundImage: "url(https://images.unsplash.com/photo-1673357586471-0f766a83007c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60)" }}>
+                                <div className="card-toprated"
+                                 style={{ backgroundImage: "url(https://images.unsplash.com/photo-1673357586471-0f766a83007c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60)" }}
+                                 >
                                 <div className="card-title-top-rated">{item.turf.name}</div>
                                 <div className="card-location">{item.place}</div>
                                 <div className="card-rating">
