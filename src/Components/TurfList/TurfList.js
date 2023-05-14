@@ -38,7 +38,7 @@ function TurfList() {
               <Grid item xs={12} sm={6} md={4} lg={3} key={item.id}>
               <Item>
                 <div className="turf-list-card">
-                  <img src={`http://localhost:8000/${item.logo}`} alt="" />
+                  <img src={`https://cartify.website/${item.logo}`} alt="" />
                   <h3>{item.turf.name}</h3>
                   <p>{item.place}</p>
                   <Rating name="read-only" value='5' readOnly />

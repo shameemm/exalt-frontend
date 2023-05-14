@@ -66,7 +66,7 @@ function TurfDetails({ open }) {
     const [cricketPrice,setCricketPrice] = useState(0)
 
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/turf/get-details/${id}/`)
+        axios.get(`https://cartify.website/turf/get-details/${id}/`)
             .then((response) => {
                 console.log("data", response.data);
                 setTurfData(response.data)
@@ -185,7 +185,7 @@ function TurfDetails({ open }) {
       ))}
     </ImageList> */}
                     <div className="turf-logo">
-                        {data.logo ? <img src={`http://localhost:8000/${data.logo}`} alt="" /> : <Box sx={{ display: 'flex' }}>
+                        {data.logo ? <img src={`https://cartify.website/${data.logo}`} alt="" /> : <Box sx={{ display: 'flex' }}>
                             <CircularProgress />
                         </Box>}
                     </div>

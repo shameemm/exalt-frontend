@@ -48,7 +48,7 @@ function ViewTurf() {
       ))}
     </ImageList>  */}
      <div className="turf-logo">
-                         {data.logo?<img src={`http://localhost:8000/${data.logo}`} alt="" />: <Box sx={{ display: 'flex' }}>
+                         {data.logo?<img src={`https://cartify.website/${data.logo}`} alt="" />: <Box sx={{ display: 'flex' }}>
        <CircularProgress />
      </Box>}
                      </div>
