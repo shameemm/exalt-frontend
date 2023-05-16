@@ -69,7 +69,7 @@ function ApproveTurf() {
                 {/* <Item> */}
                 <div className="approve-card">
                   <div className="approve-card-image">
-                    <img src={`https://cartify.website/${data.logo}/`} alt="" />
+                    <img src={`https://cartify.website/${data.logo}`} alt="" />
                   </div>
                   <div className="approve-card-title">
                     <h2>{data.turf.name}</h2>
