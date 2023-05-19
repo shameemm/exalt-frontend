@@ -218,7 +218,7 @@ function SelectSlotBooking() {
         <ToastContainer />
         <div className="turf-data-booking">
           <div className="turf-data-booking-image">
-            <img src={`http://localhost:8000/${turfData.logo}`} alt="" />
+            <img src={`https://cartify.website/${turfData.logo}`} alt="" />
           </div>
           <div className="turf-data-booking-details">
             <div className="turf-data-booking-name">
