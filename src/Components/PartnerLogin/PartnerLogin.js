@@ -138,7 +138,7 @@ function PartnerLogin() {
                     // setRefresh(res.data.refresh)
                     // setAccess(res.data.access)
                     // setError(res.data.error)
-                    // setTokens(res.data.refresh)
+                    setTokens(res.data.refresh)
                     navigate('/partner-home')
                     setLoading(false)
                 }
