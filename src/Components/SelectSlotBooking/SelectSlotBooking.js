@@ -159,7 +159,7 @@ function SelectSlotBooking() {
       console.log(totalAmount);
       const options: RazorpayOptions = {
         key: "rzp_test_z8aKggxY5VTzKH",
-        amount: (totalAmount / 2) * 100,
+        amount: totalAmount * 100,
         currency: "INR",
         name: "Exalt - Turf Booking",
         description: "Test Transaction",
@@ -177,7 +177,7 @@ function SelectSlotBooking() {
                 text: 'Your booking has been created.',
                 confirmButtonText: 'OK',
               }).then(() => {
-                navigate('/');
+                navigate('/user-bookings');
               });    
             })
           }
@@ -319,7 +319,7 @@ function SelectSlotBooking() {
               <p>Total Amount = {isNaN(totalAmount) ? 0:totalAmount}/-</p>
               <p>Payable Amount = {isNaN(totalAmount) ? 0:totalAmount}/-</p>
               {/* <p>You have to pay 50% of total amount for confirm your booking</p> */}
-              {availible?<ColorButton onClick={handleRazopay} >Pay with RazorPay</ColorButton>:<ColorButton onClick={checkAvailability} >Check Availibility</ColorButton>}
+              {availible?<ColorButton onClick={handleRazopay} >Pay with RazorPay</ColorButton>:<p>Please Check the availibility</p>}
               {/* {availible&&<ColorButton>Pay with PayPal</ColorButton>} */}
             </div>
           </div>

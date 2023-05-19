@@ -46,6 +46,7 @@ function PartnerLogin() {
     },[navigate])
 
     const getOtp =async ()=>{
+        setLoading(true)
         const phoneData = {
             phone : phone,
         }
@@ -54,6 +55,7 @@ function PartnerLogin() {
             setOpen(true)
             toast("sent otp to your phone")
         }).catch((err)=>{
+            console.log(err);
             toast.error(err.response.data.error)
         })
         
@@ -78,11 +80,12 @@ function PartnerLogin() {
                 if (code.is_partner === true){
                     localStorage.setItem('token',JSON.stringify(res.data))
                     localStorage.setItem('access',res.data.access)
+
                     // localStorage.setItem('user',res.data.user)
                     // setRefresh(res.data.refresh)
                     // setAccess(res.data.access)
                     // setError(res.data.error)
-                    // setTokens(res.data.refresh)
+                    setTokens(res.data.refresh)
                     navigate('/partner-home')
                     setLoading(false)
                 }

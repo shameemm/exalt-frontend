@@ -48,6 +48,11 @@ function TurfList() {
             </Grid>
             )
           }
+          else{
+            return(
+              <center><p>No Turfs are Available</p></center>
+            )
+          }
         })}
       </Grid>
     </Box>

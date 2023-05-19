@@ -18,6 +18,7 @@ import Checkbox from '@mui/material/Checkbox';
 import { useContext } from 'react';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import UploadImages from '../UploadImages/UploadImages';
 
 const style = {
     position: 'absolute',
@@ -26,14 +27,14 @@ const style = {
     transform: 'translate(-50%, -50%)',
     width: 600,
     bgcolor: 'background.paper',
-    border: '2px solid #000',
+    border: '.5px solid #000',
     boxShadow: 24,
     p: 4,
-  };
+};
 
 const ColorButton = styled(Button)(({ theme }) => ({
     width: '45%',
-    marginRight:'.5rem',
+    marginRight: '.5rem',
     color: theme.palette.getContrastText('#2B7754'),
     backgroundColor: '#2B7754',
     '&:hover': {
@@ -52,7 +53,7 @@ function TurfDetails({ open }) {
     const [turfName, setTurfName] = useState('')
     const decode = jwt_decode(token.access)
     const [data, setData] = useState([])
-    const [count,setCount] = useState(0)
+    const [count, setCount] = useState(0)
     const [reviewData, setReviewData] = useState([])
     console.log(decode.user_id);
     const id = decode.user_id
@@ -60,10 +61,14 @@ function TurfDetails({ open }) {
     const [sevens, setSevens] = useState(false)
     const [elevens, setElevens] = useState(false)
     const [cricket, setCricket] = useState(false)
-    const [fivesPrice,setFivesPrice] = useState(0)
-    const [sevensPrice,setSevensPrice] = useState(0)
-    const [elevensPrice,setElevensPrice] = useState(0)
-    const [cricketPrice,setCricketPrice] = useState(0)
+    const [fivesPrice, setFivesPrice] = useState(0)
+    const [sevensPrice, setSevensPrice] = useState(0)
+    const [elevensPrice, setElevensPrice] = useState(0)
+    const [cricketPrice, setCricketPrice] = useState(0)
+    const [imageOpen, setImageOpen] = React.useState(false);
+    const handleImageOpen = () => setImageOpen(true);
+    const handleImageClose = () => setImageOpen(false);
+    const [imageData, setImageData] = useState([])
 
     useEffect(() => {
         axios.get(`https://cartify.website/turf/get-details/${id}/`)
@@ -79,14 +84,23 @@ function TurfDetails({ open }) {
                     navigate('/partner_login')
                 }
             })
-    }, [open,count])
+    }, [open, count])
 
-    const editCourts = ()=>{
+    const editCourts = () => {
         handleOpenEditCourt()
     }
-    const editFacilities = () =>{
-        
+    const editFacilities = () => {
+
     }
+
+    useEffect(()=>{
+        unAuthInstance.get(`turf/show-images/${data.id}/`).then((res)=>{
+            console.log(res.data);
+            setImageData(res.data)
+        })
+
+    },[imageOpen,data])
+
     console.log(data.id);
     useEffect(() => {
         unAuthInstance.get(`turf/show-review/${data.id}/`).then((res) => {
@@ -95,115 +109,130 @@ function TurfDetails({ open }) {
         })
     }, [data])
     let priceId
-    const updateCourts = async()=>{
+    const updateCourts = async () => {
         const priceUpdateData = {
-            fives:fivesPrice,
-            sevens:sevensPrice,
-            elevens:elevensPrice,
-            cricket:cricketPrice
+            fives: fivesPrice,
+            sevens: sevensPrice,
+            elevens: elevensPrice,
+            cricket: cricketPrice
         }
         console.log(priceUpdateData);
         const token = JSON.parse(localStorage.getItem('token'))
         const decode = jwt_decode(token.access)
         const id = decode.user_id
-        await axios.put(`turf/update-pricing/${data.price.id}/`,priceUpdateData).then((res)=>{
-        console.log(res.data);
-        setCount(count+1)
-        priceId = res.data.id
-      })
+        await axios.put(`turf/update-pricing/${data.price.id}/`, priceUpdateData).then((res) => {
+            console.log(res.data);
+            setCount(count + 1)
+            priceId = res.data.id
+        })
 
-        
+
         const turfUpdateData = {
-            price:priceId,
-            fives:fives,
-            sevens:sevens,
-            elevens:elevens,
-            cricket:cricket,
-            
+            price: priceId,
+            fives: fives,
+            sevens: sevens,
+            elevens: elevens,
+            cricket: cricket,
+
         }
         console.log(turfUpdateData);
-        await axios.put(`turf/edit-turf/${id}/`,turfUpdateData).then((res)=>{
+        await axios.put(`turf/edit-turf/${id}/`, turfUpdateData).then((res) => {
             console.log(res.data);
-            setCount(count+1)
+            setCount(count + 1)
             handleCloseEditCourt()
         })
     }
     console.log(reviewData);
-    console.log("data[0]", data);
-    // const itemData = [
-    //     {
-    //       img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-    //       title: 'Breakfast',
-    //     },
-    //     {
-    //       img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
-    //       title: 'Burger',
-    //     },
-    //     {
-    //       img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
-    //       title: 'Camera',
-    //     },
-    //     {
-    //       img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
-    //       title: 'Coffee',
-    //     },
 
-    //   ];
+    
+
+    console.log(imageData);
+    console.log("data[0]", data);
+    let itemData = []
+    if(imageData[0]){itemData = [
+        {
+            img: `https://cartify.website/${imageData[0].image}`,
+        },
+        {
+            img: `https://cartify.website/${imageData[0].image1}`,
+            title: 'Burger',
+        },
+        {
+            img: `https://cartify.website/${imageData[0].image2}`,
+            title: 'Camera',
+        },
+        {
+            img: `https://cartify.website/${imageData[0].image3}`,
+            title: 'Coffee',
+        },
+
+    ]}
     return (
         <div className="turf-detail">
             <Modal
-          open={openEditCourt}
-          onClose={handleCloseEditCourt}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={style}>
-            <h3>Edit Courts</h3>
-            <FormControlLabel control={<Checkbox onChange={(event) => { setFives(event.target.checked) }} />} label="5's Football" />
-          <input type="number" placeholder='Price' value={fivesPrice !=0 && fivesPrice} onChange={(e)=>{setFivesPrice(e.target.value)}} disabled={!fives}></input><br/>
-          <FormControlLabel control={<Checkbox  onChange={(e) => { setSevens(e.target.checked) }} />} label="7's Football" />
-          <input type="number" placeholder='Price' value={sevensPrice!=0 && sevensPrice} onChange={(e)=>{setSevensPrice(e.target.value)}} disabled={!sevens}></input><br/>
-          <FormControlLabel control={<Checkbox  onChange={(e) => { setElevens(e.target.checked) }} />} label="11's Football" />
-          <input type="number" placeholder='Price' value={elevensPrice!=0 && elevensPrice} onChange={(e)=>{setElevensPrice(e.target.value)}} disabled={!elevens}></input><br/>
-          <FormControlLabel control={<Checkbox  onChange={(e) => { setCricket(e.target.checked) }} />} label="Cricket" />
-          <input type="number" placeholder='Price' value={cricketPrice!=0 &&cricketPrice} onChange={(e)=>{setCricketPrice(e.target.value)}} disabled={!cricket}></input><br/>
-          <Button onClick={updateCourts}>Update</Button>
-          </Box>
-        </Modal>
+                open={imageOpen}
+                onClose={handleImageClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box sx={style}>
+                    <UploadImages handleImageClose={handleImageClose}/>
+                </Box>
+            </Modal>
+            <Modal
+                open={openEditCourt}
+                onClose={handleCloseEditCourt}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box sx={style}>
+                    <h3>Edit Courts</h3>
+                    <FormControlLabel control={<Checkbox onChange={(event) => { setFives(event.target.checked) }} />} label="5's Football" />
+                    <input type="number" placeholder='Price' value={fivesPrice != 0 && fivesPrice} onChange={(e) => { setFivesPrice(e.target.value) }} disabled={!fives}></input><br />
+                    <FormControlLabel control={<Checkbox onChange={(e) => { setSevens(e.target.checked) }} />} label="7's Football" />
+                    <input type="number" placeholder='Price' value={sevensPrice != 0 && sevensPrice} onChange={(e) => { setSevensPrice(e.target.value) }} disabled={!sevens}></input><br />
+                    <FormControlLabel control={<Checkbox onChange={(e) => { setElevens(e.target.checked) }} />} label="11's Football" />
+                    <input type="number" placeholder='Price' value={elevensPrice != 0 && elevensPrice} onChange={(e) => { setElevensPrice(e.target.value) }} disabled={!elevens}></input><br />
+                    <FormControlLabel control={<Checkbox onChange={(e) => { setCricket(e.target.checked) }} />} label="Cricket" />
+                    <input type="number" placeholder='Price' value={cricketPrice != 0 && cricketPrice} onChange={(e) => { setCricketPrice(e.target.value) }} disabled={!cricket}></input><br />
+                    <Button onClick={updateCourts}>Update</Button>
+                </Box>
+            </Modal>
             <div className="turf-detail-card">
                 <div className="detail-card-left">
-                    {/* <ImageList sx={{ width: 400, height: 400 }} cols={2} >
-      {itemData.map((item) => (
-        <ImageListItem key={item.img}>
-          <img
-            src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-            srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-            alt={item.title}
-            loading="lazy"
-          />
-        </ImageListItem>
-      ))}
-    </ImageList> */}
-                    <div className="turf-logo">
-                        {data.logo ? <img src={`https://cartify.website/${data.logo}`} alt="" /> : <Box sx={{ display: 'flex' }}>
-                            <CircularProgress />
-                        </Box>}
+                    {(imageData.length!==0)?<ImageList sx={{ width: 500, height: 500 }} cols={2} >
+                        {itemData.map((item) => (
+                            <ImageListItem key={item.img}>
+                                <img src={item.img} alt="" width="200" height="200" />
+                            </ImageListItem>
+                        ))}
+                    </ImageList>:<Button variant="contained" color="success" onClick={handleImageOpen}>Upload Image</Button>}
+                    <div className="turf-images">
+
                     </div>
                 </div>
                 <div className="detail-card-right">
+                    {data.unlisted && <h4 style={{ color: 'red' }}>Your turf is unlisted by admin </h4>}
 
                     <div className="turf-address">
+                        <div className="turf-logo">
+                            {data.logo ? <img src={`https://cartify.website/${data.logo}`} alt="" /> : <Box sx={{ display: 'flex' }}>
+                                <CircularProgress  />
+                            </Box>}
+                        </div>
+                        <div className="title_and_place">
+                            <div className="turf-name">
+                                <h2>{turfName}</h2>
+                            </div>
+                            <div className="turf-place">
+                                <h4>{data.place}</h4>
+                            </div>
+                        </div>
 
-                        <div className="turf-name">
-                            <h2>{turfName}</h2>
-                        </div>
-                        <div className="turf-place">
-                            <h4>{data.place}</h4>
-                        </div>
                     </div>
                     <div className="turf-courts">
                         <div className="court-details-heading">
-                            <div className='courts-available'><h3>Courts Availible</h3><p onClick={editCourts} style={{marginLeft:'auto',cursor:'pointer'}}>edit</p></div>
+                            <div className='courts-available'><h3>Courts Availible</h3><p onClick={editCourts} style={{ marginLeft: 'auto', cursor: 'pointer' }}>edit</p></div>
                             <ul className="court-list">
                                 {data.fives ? <li>5's Football  {data.price.fives}</li> : ""}
                                 {data.sevens ? <li>7's Football {data.price.sevens}</li> : ""}
@@ -226,7 +255,7 @@ function TurfDetails({ open }) {
             </div>
             <div className="turf-facility-card">
                 <div className="facilities"><h3>Facilities</h3>
-                {/* <p style={{marginLeft:'auto',cursor:'pointer'}} onClick={editFacilities}>edit</p> */}
+                    {/* <p style={{marginLeft:'auto',cursor:'pointer'}} onClick={editFacilities}>edit</p> */}
                 </div>
                 <div className="facility-icons">
                     {data.cafe ? <img src="/icons/facilities/cafe.png" alt="" /> : ""}
@@ -237,8 +266,8 @@ function TurfDetails({ open }) {
                 </div>
             </div>
             <div className="list-reviews-partner">
-            <h3>Review and rating</h3>
-                {reviewData&&reviewData.map((item) => {
+                <h3>Review and rating</h3>
+                {reviewData && reviewData.map((item) => {
                     return (
                         <React.Fragment>
                             <div className="review-list-username">
